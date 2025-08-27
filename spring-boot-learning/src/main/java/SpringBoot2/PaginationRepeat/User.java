@@ -3,13 +3,15 @@ package SpringBoot2.PaginationRepeat;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "`user`")
 public class User {
 
     @Id
     @GeneratedValue
-    private int id;
+    private Long id;
 
     private String name;
 
@@ -19,10 +21,10 @@ public class User {
         this.name = name;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -35,7 +37,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User [id=" + id + ", name=" + name + "]";
+        return "\nUser [id=" + id + ", name=" + name + "]";
     }
 
 }
