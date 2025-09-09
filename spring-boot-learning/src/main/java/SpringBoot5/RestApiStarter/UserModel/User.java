@@ -1,4 +1,4 @@
-package SpringBoot5.RestApiStarter.AppUsers;
+package SpringBoot5.RestApiStarter.UserModel;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
