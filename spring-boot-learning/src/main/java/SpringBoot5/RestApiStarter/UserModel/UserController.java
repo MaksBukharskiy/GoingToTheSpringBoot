@@ -32,7 +32,7 @@ public class UserController {
 
         return userRepository.findAll(pageable);
     }
-
+ 
     @GetMapping("/search/users")
     public List<User> getUserByTheRepositoryCustomMethod (@RequestParam(required = false) String username){
         if (username == null || username.isEmpty()) {
