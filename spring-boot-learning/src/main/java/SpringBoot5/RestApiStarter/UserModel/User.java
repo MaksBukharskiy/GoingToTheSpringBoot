@@ -12,14 +12,14 @@ public class User {
     @Id
     @GeneratedValue
     private Long id;
-    private String car;
+    private String username;
     private Integer age;
 
     public User() {
     }
 
-    public User(String car, Integer age) {
-        this.car = car;
+    public User(String username, Integer age) {
+        this.username = username;
         this.age = age;
     }
 
@@ -31,11 +31,11 @@ public class User {
         this.id = id;
     }
 
-    public String getCar() {
-        return car;
+    public String getUsername() {
+        return username;
     }
-    public void setCar(String car) {
-        this.car = car;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public Integer getAge() {
@@ -50,7 +50,7 @@ public class User {
     public String toString() {
         return "User {" +
                 "id=" + id +
-                ", car='" + car + '\'' +
+                ", username='" + username + '\'' +
                 ", age=" + age +
                 '}';
     }
