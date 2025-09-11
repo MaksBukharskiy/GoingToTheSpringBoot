@@ -1,5 +1,7 @@
 package SpringBoot5.RestApiStarter.UserModel;
 
+import SpringBoot5.RestApiStarter.CarModel.Cars;
+import SpringBoot5.RestApiStarter.Repository.CarRepository;
 import SpringBoot5.RestApiStarter.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -7,6 +9,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -24,9 +27,18 @@ public class UserController {
     @GetMapping
     public Page<User> getPageOfUsers() {
         PageRequest pageable = PageRequest.of
-                (0, 2, Sort.by("age")
+                (0, 5, Sort.by("id")
                         .descending());
 
         return userRepository.findAll(pageable);
     }
+
+    @GetMapping("/search/users")
+    public List<User> getUserByTheRepositoryCustomMethod (@RequestParam(required = false) String username){
+        if (username == null || username.isEmpty()) {
+            return userRepository.findAll(); // если не передали — вернуть всех
+        }
+        return userRepository.findByUsernameContainingIgnoreCase(username);
+    }
+
 }
