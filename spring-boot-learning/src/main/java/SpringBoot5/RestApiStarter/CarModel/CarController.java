@@ -8,9 +8,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.Repository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,5 +31,13 @@ public class CarController {
 
         return carRepository.findAll(pagereq);
     };
+
+    @PostMapping("/postmapping/car")
+    public Cars saveCar(@RequestBody Cars car) {
+        return carRepository.save(car);
+    }
+
+
+
 }
 

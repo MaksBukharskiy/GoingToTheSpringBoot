@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Отправить Echo</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        input, button { padding: 10px; font-size: 16px; }
+        .container { max-width: 500px; margin: 0 auto; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>💬 Отправить Echo-сообщение</h2>
+    <form action="/api/echo/message" method="post">
+        <input type="text" name="message" placeholder="Введите сообщение" required style="width: 100%; margin-bottom: 10px;">
+        <button type="submit">Отправить</button>
+    </form>
+</div>
+</body>
+</html>

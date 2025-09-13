@@ -1,6 +1,8 @@
 package SpringBoot5.RestApiStarter;
 
 import SpringBoot5.RestApiStarter.CarModel.Cars;
+import SpringBoot5.RestApiStarter.EchoMode.Echo;
+import SpringBoot5.RestApiStarter.EchoMode.EchoRepository;
 import SpringBoot5.RestApiStarter.Repository.CarRepository;
 import SpringBoot5.RestApiStarter.Repository.UserRepository;
 import SpringBoot5.RestApiStarter.UserModel.User;
@@ -17,6 +19,9 @@ public class Main implements CommandLineRunner {
 
     @Autowired
     private CarRepository carRepository;
+
+    @Autowired
+    private EchoRepository echoRepository;
 
 
     public static void main(String[] args) {
@@ -49,6 +54,13 @@ public class Main implements CommandLineRunner {
         carRepository.save(car2);
         carRepository.save(car3);
 
+        Echo echo1 = new Echo("Echo 1");
+        Echo echo2 = new Echo("Echo 2");
+        Echo echo3 = new Echo("Echo 3");
+
+        echoRepository.save(echo1);
+        echoRepository.save(echo2);
+        echoRepository.save(echo3);
 
         System.out.println("✅ 7 users are uploaded");
         System.out.println("✅ 3 Cars are uploaded");
