@@ -23,10 +23,10 @@ public class CarController {
         this.carRepository = carRepository;
     }
 
-    @GetMapping
+    @GetMapping("/old")
     public Page<Cars> findAllPage() {
         PageRequest pagereq = PageRequest.of(
-                0,3, Sort.by("carName")
+                0,4, Sort.by("carName")
                 .descending());
 
         return carRepository.findAll(pagereq);
