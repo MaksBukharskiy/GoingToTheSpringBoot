@@ -1,4 +1,11 @@
-package SpringBoot6.RestAPI.FinalProject.Service;
+package SpringBoot6.RestAPI.FinalProject;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
 public class Main {
+    public static void main(String[] args) {
+        SpringApplication.run(Main.class, args);
+    }
 }
