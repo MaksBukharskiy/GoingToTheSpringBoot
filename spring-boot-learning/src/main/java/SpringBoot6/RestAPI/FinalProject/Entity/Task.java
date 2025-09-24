@@ -1,6 +1,6 @@
 package SpringBoot6.RestAPI.FinalProject.Entity;
 
-import ch.qos.logback.core.status.Status;
+import SpringBoot6.RestAPI.FinalProject.Entity.TaskStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,20 +24,21 @@ public class Task {
     private String title;
     private String description;
 
+    @Enumerated(EnumType.STRING)
+    private TaskStatus status;
+
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-
-    @Enumerated(EnumType.STRING)
-    private Status status;
-
-    public enum Status{
-        NEW,
-        IN_PROGRESS,
-        COMPLETED
+    public Task(String title, String description){
+        this.title = title;
+        this.description = description;
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+        this.status = TaskStatus.NEW;
     }
 
     @PreUpdate
